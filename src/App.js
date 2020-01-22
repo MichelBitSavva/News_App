@@ -8,9 +8,9 @@ import Footer from "./components/Footer/Footer";
 let App = () => {
     return (
         <div className="App">
-            <HeaderWraper />
-            <Main />
-            <Footer />
+            <HeaderWraper/>
+            <Main/>
+            <Footer/>
         </div>
     );
 };

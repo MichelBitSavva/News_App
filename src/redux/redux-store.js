@@ -5,10 +5,10 @@ import homePageReducer from "./home_page_reducer";
 import loginPageReducer from "./login_page_reducer";
 
 let reducers = combineReducers({
-    newsPage:newsPageReducer,
-    resultsPage:resultsPageReducer,
-    homePage:homePageReducer,
-    loginPage:loginPageReducer
+    newsPage: newsPageReducer,
+    resultsPage: resultsPageReducer,
+    homePage: homePageReducer,
+    loginPage: loginPageReducer
 });
 
 let store = createStore(reducers);

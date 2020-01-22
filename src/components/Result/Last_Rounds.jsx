@@ -10,7 +10,7 @@ class LastRounds extends Component {
         return (
             <div className="container general">
                 <TitleResult/>
-                <RoundResults rounds ={this.props.rounds}
+                <RoundResults rounds={this.props.rounds}
                 />
             </div>
         );

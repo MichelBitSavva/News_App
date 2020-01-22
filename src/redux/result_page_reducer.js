@@ -1,8 +1,8 @@
-
 let initialState = {
     name: "Bundesliga 2019/20",
-        rounds: [
-        {   id: 1,
+    rounds: [
+        {
+            id: 1,
             name: "Spieltag 1",
             matches: [
                 {
@@ -157,7 +157,8 @@ let initialState = {
                 }
             ]
         },
-        {   id: 2,
+        {
+            id: 2,
             name: "Spieltag 2",
             matches: [
                 {
@@ -303,7 +304,6 @@ let initialState = {
 const resultsPageReducer = (state = initialState, action) => {
     return state;
 };
-
 
 
 export default resultsPageReducer;
