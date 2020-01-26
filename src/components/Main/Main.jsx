@@ -20,7 +20,7 @@ const Main = () => {
                 <Route path="/" exact render={() => <HomeContainer/>}/>
                 <Route path="/LastRounds" render={() => <LastRounds/>}/>
                 <Route path="/News" exact render={() => <News/>}/>
-                <Route path="/News/FullNews" render={() => <FullNewsContainer/>}/>
+                <Route path="/News/FullNews/:newsId" render={() => <FullNewsContainer/>}/>
                 <Route path="/Profile" render={() => <Profile/>}/>
                 <Route path="/Login" render={() => <LoginFormContain/>}/>
             </div>
