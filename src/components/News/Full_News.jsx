@@ -4,7 +4,6 @@ import Comments from "./Comments";
 
 let FullNews = props => {
     let currentNews = props.news.find(n => n.id === props.newsId);
-
     return (
         <div>
             <div className="news">

@@ -2,7 +2,7 @@ import React from "react";
 import "react-bulma-components/dist/react-bulma-components.min.css";
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
-import {setNewsIdActionCreator} from "../../redux/news_page_reducer";
+import {setNewsId} from "../../redux/news_page_reducer";
 
 let Preview = props => {
     return props.news.map(n => (
@@ -31,12 +31,5 @@ let mapStateToProps = state => {
     };
 };
 
-let mapDispatchToProps = dispatch => {
-    return {
-        setNewsId: id => {
-            dispatch(setNewsIdActionCreator(id));
-        }
-    };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Preview);
+export default connect(mapStateToProps, {setNewsId})(Preview);

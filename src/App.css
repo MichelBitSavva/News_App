@@ -53,3 +53,8 @@ aside ul li {
     padding-top: 40px;
     padding-left: 20px;
 }
+.preloader {
+    display: flex;
+    justify-content: center;
+
+}

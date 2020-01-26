@@ -74,7 +74,8 @@ let initialState = {
         {id: 2, name: "guest", message: "Левандовский лучший"}
     ],
     newCommentText: "",
-    newsId: ""
+    newsId: "",
+    currentNews: []
 };
 
 const newsPageReducer = (state = initialState, action) => {
@@ -98,6 +99,7 @@ const newsPageReducer = (state = initialState, action) => {
                 newCommentText: ""
             };
         }
+
         case SET_NEWS_ID: {
             return {
                 ...state,
@@ -109,16 +111,17 @@ const newsPageReducer = (state = initialState, action) => {
     }
 };
 
-export const addCommentsActionCreator = () => ({type: ADD_POST});
+export const addComments = () => ({type: ADD_POST});
 
-export const updateTextActionCreator = com => ({
+export const updateText = com => ({
     type: UPDATE_TEXT,
     text: com
 });
 
-export const setNewsIdActionCreator = id => ({
+export const setNewsId = id => ({
     type: SET_NEWS_ID,
     id: id
 });
+
 
 export default newsPageReducer;

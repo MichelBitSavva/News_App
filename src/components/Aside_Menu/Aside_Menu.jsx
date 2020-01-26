@@ -3,7 +3,7 @@ import "react-bulma-components/dist/react-bulma-components.min.css";
 import {NavLink, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import * as firebase from "firebase";
-import {singOutUserActionCreator} from "../../redux/login_page_reducer";
+import {signOutUser} from "../../redux/login_page_reducer";
 
 const AsideMenu = props => {
     let signOutUser = () => {
@@ -66,14 +66,8 @@ let mapStateToProps = state => {
     };
 };
 
-let mapDispatchToProps = dispatch => {
-    return {
-        signOutUser: () => {
-            dispatch(singOutUserActionCreator());
-        }
-    };
-};
+
 
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(AsideMenu)
+    connect(mapStateToProps, {signOutUser})(AsideMenu)
 );

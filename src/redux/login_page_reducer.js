@@ -50,19 +50,19 @@ const loginPageReducer = (state = initialState, action) => {
     }
 };
 
-export const updateLoginActionCreator = loginText => ({
+export const updateLoginForm = loginText => ({
     type: UPDATE_LOGIN_FORM,
     loginText: loginText
 });
-export const updatePasswordActionCreator = passwordText => ({
+export const updatePasswordForm = passwordText => ({
     type: UPDATE_PASSWORD_FORM,
     passwordText: passwordText
 });
-export const updateUserActionCreator = login => ({
+export const updateUser= login => ({
     type: UPDATE_USER,
     login: login
 });
-export const singOutUserActionCreator = () => ({
+export const signOutUser = () => ({
     type: SIGN_OUT_USER
 });
 

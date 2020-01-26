@@ -19,7 +19,7 @@ const LoginForm = props => {
     return (
         <div className="columns is-centered">
             <div className="column is-half">
-                <div className="field">
+                <div className="field" >
                     <p className="control has-icons-left">
                         <input
                             onChange={updateLoginForm}
@@ -45,8 +45,8 @@ const LoginForm = props => {
                 </div>
                 <div className="field">
                     <p className="control has-text-centered">
-                        <button
-                            onClick={props.loginFirebase}
+                        <button type="submit"
+                                onClick={props.loginFirebase}
                             className="button is-medium is-success"
                         >
                             Login

@@ -1,12 +1,15 @@
 import React from "react";
 import "react-bulma-components/dist/react-bulma-components.min.css";
 import {connect} from "react-redux";
-import {addSetStateActionCreator} from "../../redux/home_page_reducer";
+import { setTeams, toggleIsFetching,
+} from "../../redux/home_page_reducer";
 import Home from "./Home";
 import * as axios from "axios";
+import Preloader from "../Common/Preloader/Preloader";
 
 class HomeContainer extends React.Component {
     componentDidMount() {
+        this.props.toggleIsFetching(true);
         axios({
             method: "GET",
             url: "https://api-football-v1.p.rapidapi.com/v2/leagueTable/8",
@@ -17,6 +20,7 @@ class HomeContainer extends React.Component {
             }
         })
             .then(response => {
+                this.props.toggleIsFetching(false);
                 console.log(response);
                 this.props.setTeams(response.data.api.standings[0]);
             })
@@ -26,22 +30,20 @@ class HomeContainer extends React.Component {
     }
 
     render() {
-        return <Home teams={this.props.teams}/>;
+        return <>
+            {this.props.isFetching ? <Preloader/> : <Home teams={this.props.teams}/>}
+
+        </>
     }
 }
 
 let mapStateToProps = state => {
     return {
-        teams: state.homePage.teams
-    };
-};
-let mapDispatchToProps = dispatch => {
-    return {
-        setTeams: teams => {
-            dispatch(addSetStateActionCreator(teams));
-        }
+        teams: state.homePage.teams,
+        isFetching: state.homePage.isFetching
     };
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
+
+export default connect(mapStateToProps, {setTeams, toggleIsFetching} )(HomeContainer);
