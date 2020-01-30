@@ -5,7 +5,7 @@ let initialState = {
             id: 1,
             name: "Spieltag 1",
             matches: [
-                {
+                {   id: 1,
                     date: "2019-08-16",
                     team1: {
                         key: "bayern",
@@ -20,7 +20,7 @@ let initialState = {
                     score1: 2,
                     score2: 2
                 },
-                {
+                {   id: 2,
                     date: "2019-08-17",
                     team1: {
                         key: "bremen",
@@ -35,7 +35,7 @@ let initialState = {
                     score1: 1,
                     score2: 3
                 },
-                {
+                {   id: 3,
                     date: "2019-08-17",
                     team1: {
                         key: "freiburg",
@@ -50,7 +50,7 @@ let initialState = {
                     score1: 3,
                     score2: 0
                 },
-                {
+                {   id: 4,
                     date: "2019-08-17",
                     team1: {
                         key: "freiburg",
@@ -65,7 +65,7 @@ let initialState = {
                     score1: 3,
                     score2: 0
                 },
-                {
+                {   id: 5,
                     date: "2019-08-17",
                     team1: {
                         key: "leverkusen",
@@ -80,7 +80,7 @@ let initialState = {
                     score1: 3,
                     score2: 2
                 },
-                {
+                {   id: 6,
                     date: "2019-08-17",
                     team1: {
                         key: "dortmund",
@@ -95,7 +95,7 @@ let initialState = {
                     score1: 5,
                     score2: 1
                 },
-                {
+                {   id: 7,
                     date: "2019-08-17",
                     team1: {
                         key: "wolfsburg",
@@ -110,7 +110,7 @@ let initialState = {
                     score1: 2,
                     score2: 1
                 },
-                {
+                {   id: 8,
                     date: "2019-08-17",
                     team1: {
                         key: "mgladbach",
@@ -125,7 +125,7 @@ let initialState = {
                     score1: 0,
                     score2: 0
                 },
-                {
+                {   id: 9,
                     date: "2019-08-18",
                     team1: {
                         key: "frankfurt",
@@ -140,7 +140,7 @@ let initialState = {
                     score1: 1,
                     score2: 0
                 },
-                {
+                {   id: 10,
                     date: "2019-08-18",
                     team1: {
                         key: "unionberlin",
@@ -161,7 +161,7 @@ let initialState = {
             id: 2,
             name: "Spieltag 2",
             matches: [
-                {
+                {   id: 11,
                     date: "2019-08-24",
                     team1: {
                         key: "schalke",
@@ -176,7 +176,7 @@ let initialState = {
                     score1: 0,
                     score2: 3
                 },
-                {
+                {   id: 12,
                     date: "2019-08-25",
                     team1: {
                         key: "leipzig",
@@ -191,7 +191,7 @@ let initialState = {
                     score1: 2,
                     score2: 1
                 },
-                {
+                {   id: 13,
                     date: "2019-08-25",
                     team1: {
                         key: "herthabsc",
@@ -206,7 +206,7 @@ let initialState = {
                     score1: 0,
                     score2: 3
                 },
-                {
+                {   id: 14,
                     date: "2019-08-24",
                     team1: {
                         key: "augsburg",
@@ -221,7 +221,7 @@ let initialState = {
                     score1: 1,
                     score2: 1
                 },
-                {
+                {   id: 15,
                     date: "2019-08-24",
                     team1: {
                         key: "paderborn",
@@ -236,7 +236,7 @@ let initialState = {
                     score1: 1,
                     score2: 3
                 },
-                {
+                {   id: 16,
                     date: "2019-08-24",
                     team1: {
                         key: "hoffenheim",
@@ -251,7 +251,7 @@ let initialState = {
                     score1: 3,
                     score2: 2
                 },
-                {
+                {   id: 17,
                     date: "2019-08-24",
                     team1: {
                         key: "schalke",
@@ -266,7 +266,7 @@ let initialState = {
                     score1: 0,
                     score2: 3
                 },
-                {
+                {   id: 18,
                     date: "2019-08-25",
                     team1: {
                         key: "leipzig",
@@ -281,7 +281,7 @@ let initialState = {
                     score1: 2,
                     score2: 1
                 },
-                {
+                {   id: 19,
                     date: "2019-08-25",
                     team1: {
                         key: "herthabsc",
