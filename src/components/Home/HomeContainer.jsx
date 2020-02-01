@@ -1,7 +1,8 @@
 import React from "react";
 import "react-bulma-components/dist/react-bulma-components.min.css";
 import {connect} from "react-redux";
-import { setTeams, toggleIsFetching,
+import {
+    clearTeams, setTeams, toggleIsFetching,
 } from "../../redux/home_page_reducer";
 import Home from "./Home";
 import * as axios from "axios";
@@ -28,6 +29,9 @@ class HomeContainer extends React.Component {
                 console.log(error);
             });
     }
+    componentWillUnmount() {
+        this.props.clearTeams()
+    }
 
     render() {
         return <>
@@ -46,4 +50,4 @@ let mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps, {setTeams, toggleIsFetching} )(HomeContainer);
+export default connect(mapStateToProps, {setTeams, toggleIsFetching, clearTeams} )(HomeContainer);

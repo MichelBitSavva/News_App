@@ -5,7 +5,9 @@ import firebaseConfig from "../../firebase.config";
 import "firebase/auth";
 import {connect} from "react-redux";
 import {
-    updateLoginForm, updatePasswordForm, updateUser
+    updateLoginForm,
+    updatePasswordForm,
+    updateUser
 } from "../../redux/login_page_reducer";
 import LoginForm from "./LoginForm";
 import {withRouter} from "react-router-dom";
@@ -19,7 +21,7 @@ class LoginFormContainer extends React.Component {
             : firebase.app();
     }
 
-    loginFirebase = (e) => {
+    loginFirebase = e => {
         e.preventDefault();
         this.props.toggleIsFetching(true);
         let email = this.props.login;
@@ -29,9 +31,11 @@ class LoginFormContainer extends React.Component {
             .auth()
             .signInWithEmailAndPassword(email, password)
             .then(res => {
+                console.log(res);
 
                 if (res.user) {
                     this.props.toggleIsFetching(false);
+
                     this.props.updateUser(email);
                     this.props.history.push("/");
                 }
@@ -44,20 +48,22 @@ class LoginFormContainer extends React.Component {
     };
 
     render() {
-        return (<>
-                {this.props.isFetching ? <Preloader/> : <LoginForm
-                    login={this.props.login}
-                    password={this.props.password}
-                    updateLoginForm={this.props.updateLoginForm}
-                    updatePasswordForm={this.props.updatePasswordForm}
-                    updateUser={this.props.updateUser}
-                    history={this.props.history}
-                    loginFirebase={this.loginFirebase}
-                />}
-
+        return (
+            <>
+                {this.props.isFetching ? (
+                    <Preloader/>
+                ) : (
+                    <LoginForm
+                        login={this.props.login}
+                        password={this.props.password}
+                        updateLoginForm={this.props.updateLoginForm}
+                        updatePasswordForm={this.props.updatePasswordForm}
+                        updateUser={this.props.updateUser}
+                        history={this.props.history}
+                        loginFirebase={this.loginFirebase}
+                    />
+                )}
             </>
-
-
         );
     }
 }
@@ -70,8 +76,11 @@ let mapStateToProps = state => {
     };
 };
 
-let LoginFormContain = connect(mapStateToProps,
-    {toggleIsFetching, updateLoginForm, updatePasswordForm, updateUser}
-)(LoginFormContainer);
+let LoginFormContain = connect(mapStateToProps, {
+    toggleIsFetching,
+    updateLoginForm,
+    updatePasswordForm,
+    updateUser
+})(LoginFormContainer);
 
 export default withRouter(LoginFormContain);
