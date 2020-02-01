@@ -4,6 +4,10 @@ import { NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as firebase from "firebase";
 import { signOutUser } from "../../redux/login_page_reducer";
+import {MdHome} from "react-icons/md";
+import {IoMdFootball, IoMdLogIn} from "react-icons/io";
+import {GiNewspaper} from "react-icons/gi";
+import {AiOutlineProfile} from "react-icons/ai";
 
 const AsideMenu = props => {
   let signOutUser = () => {
@@ -15,20 +19,22 @@ const AsideMenu = props => {
       <ul className="menu-list is-size-5-desktop	 has-text-centered has-text-weight-bold has-text-black-bis">
         <li>
           <NavLink activeClassName="nav" to="/">
-            Home
+            <MdHome/>  Home
           </NavLink>
         </li>
         <li>
           <NavLink activeClassName="nav" to="/LastRounds">
-            Results
+            <IoMdFootball/>  Results
           </NavLink>
         </li>
         <li>
-          <NavLink to="/News">News</NavLink>
+          <NavLink to="/News">
+            <GiNewspaper/>  News
+          </NavLink>
         </li>
         <li>
           {props.user.auth === true ? (
-            <NavLink to="/Profile">Profile</NavLink>
+            <NavLink to="/Profile"><AiOutlineProfile/> Profile</NavLink>
           ) : null}
         </li>
         <li>
@@ -45,21 +51,21 @@ const AsideMenu = props => {
                     props.history.push("/");
                   })
                   .catch(function(error) {
-                    // An error happened.
+
                   })
               }
             >
               Logout
             </button>
           ) : (
-            <NavLink to="/Login">Login</NavLink>
+            <NavLink to="/Login"><IoMdLogIn/> Login</NavLink>
           )}
         </li>
         <li>
           {props.user.auth === true ? (
-            <p> Hello, {props.user.name} </p>
+            <p> Hello, {props.user.name}!</p>
           ) : (
-            <p> Hello, guest </p>
+            <p> Hello, guest! </p>
           )}
         </li>
       </ul>
