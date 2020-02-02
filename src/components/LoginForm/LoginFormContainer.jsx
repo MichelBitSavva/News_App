@@ -35,7 +35,6 @@ class LoginFormContainer extends React.Component {
 
                 if (res.user) {
                     this.props.toggleIsFetching(false);
-
                     this.props.updateUser(email);
                     this.props.history.push("/");
                 }
