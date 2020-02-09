@@ -3,7 +3,6 @@ import "react-bulma-components/dist/react-bulma-components.min.css";
 
 
 const Home = props => {
-    // let tableElement =
     return (
         <table className="table is-bordered is-striped is-narrow is-fullwidth">
             <thead>

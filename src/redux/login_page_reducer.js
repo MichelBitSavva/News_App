@@ -1,3 +1,7 @@
+import {getHomePageData} from "../API/api";
+import {setTeams, toggleIsFetching} from "./home_page_reducer";
+import * as firebase from "firebase";
+
 const UPDATE_LOGIN_FORM = "UPDATE_LOGIN_FORM";
 const UPDATE_PASSWORD_FORM = "UPDATE_PASSWORD_FORM";
 const UPDATE_USER = "UPDATE_USER";
@@ -65,5 +69,28 @@ export const updateUser= login => ({
 export const signOutUser = () => ({
     type: SIGN_OUT_USER
 });
+
+export const loginFirebaseThunkCreator = (email, password) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true));
+
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then(res => {
+                console.log(res);
+
+                if (res.user) {
+                    dispatch(toggleIsFetching(false));
+                    dispatch(updateUser(email));
+                }
+            })
+            .catch(error => {
+                dispatch(toggleIsFetching(false));
+                let errorMessage = error.message;
+                alert(errorMessage);
+            });
+    }
+};
 
 export default loginPageReducer;

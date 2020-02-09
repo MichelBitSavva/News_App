@@ -5,6 +5,7 @@ import firebaseConfig from "../../firebase.config";
 import "firebase/auth";
 import {connect} from "react-redux";
 import {
+    loginFirebaseThunkCreator,
     updateLoginForm,
     updatePasswordForm,
     updateUser
@@ -23,28 +24,12 @@ class LoginFormContainer extends React.Component {
 
     loginFirebase = e => {
         e.preventDefault();
-        this.props.toggleIsFetching(true);
-        let email = this.props.login;
-        let password = this.props.password;
+        this.props.loginFirebaseThunkCreator(this.props.login, this.props.password);
+        this.props.history.push("/");
 
-        firebase
-            .auth()
-            .signInWithEmailAndPassword(email, password)
-            .then(res => {
-                console.log(res);
-
-                if (res.user) {
-                    this.props.toggleIsFetching(false);
-                    this.props.updateUser(email);
-                    this.props.history.push("/");
-                }
-            })
-            .catch(error => {
-                this.props.toggleIsFetching(false);
-                let errorMessage = error.message;
-                alert(errorMessage);
-            });
     };
+
+
 
     render() {
         return (
@@ -79,7 +64,8 @@ let LoginFormContain = connect(mapStateToProps, {
     toggleIsFetching,
     updateLoginForm,
     updatePasswordForm,
-    updateUser
+    updateUser,
+    loginFirebaseThunkCreator
 })(LoginFormContainer);
 
 export default withRouter(LoginFormContain);
