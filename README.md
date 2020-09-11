@@ -5,4 +5,7 @@ ____________________________________________________
 If you want to test Login Form, please use                                                                     
 Login: test123@qwert.ru            
 Password: 123456
+
+Firebase disconected from project
+
 ____________________________________________________
